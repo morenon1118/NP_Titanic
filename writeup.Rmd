@@ -1,0 +1,23 @@
+---
+title: "NP - Titanic Project"
+author: "Nick Moreno"
+date: "4/30/2020"
+output: html_document
+---
+## Introduction  
+The goal for the non-parametric final project is to develop the model that best predicts survivor rate of the shipwreck from the Titanic. I'll do some initial data cleaning and exploratory analysis to get a better idea of the dataset that we are working with. After, I will train various boosted random forest models to predict survivor rate and optimize for the best prediction score.
+
+##Data  
+First, let's see what we are working with:
+```{r}
+summary(train)
+
+```
+So 10 total predictors: 5 categorical and 5 numeric. Moreover, _Age_ and _Cabin_ have missing values, so we will have to find a way to model for those as well. 
+
+Let's take a look at cabin first:
+```{r}
+table(train$Cabin)
+table(is.na(train$Cabin))
+
+```
